@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicole's Baby Shower - Baby in Bloom</title>
+    <style>
+        /* Pastel Color Scheme */
+        :root {
+            --pastel-pink: #f8d7da;
+            --pastel-mint: #d1ecf1;
+            --pastel-lavender: #e2d9f3;
+            --pastel-peach: #ffe5d9;
+            --pastel-green: #d4edda;
+            --soft-white: #fff9fb;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-mint));
+            min-height: 100vh;
+            color: #5a5a5a;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><path fill="%23e83e8c" d="M50,10 C60,20 70,25 80,30 C85,40 90,50 85,60 C80,70 70,75 60,80 C50,85 40,90 30,85 C20,80 15,70 10,60 C5,50 10,40 15,30 C20,20 30,15 40,10 C45,5 50,5 50,10 Z"/></svg>');
+            background-repeat: repeat;
+            background-size: 80px;
+        }
+        
+        h1 {
+            color: #e83e8c;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+        
+        /* Section Styles */
+        .section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Upload Section */
+        .upload-card {
+            background: var(--soft-white);
+            border: 2px dashed var(--pastel-peach);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-card:hover {
+            border-color: #ffb3a7;
+            background: #fff0eb;
+            transform: translateY(-5px);
+        }
+        
+        .upload-icon {
+            font-size: 60px;
+            color: var(--pastel-green);
+            margin-bottom: 15px;
+        }
+        
+        .upload-btn {
+            background: var(--pastel-green);
+            color: #155724;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-btn:hover {
+            background: #a3d9a5;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Countdown Timer */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-item {
+            background: var(--pastel-lavender);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 80px;
+        }
+        
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #e83e8c;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        /* Gallery Styles */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            aspect-ratio: 1;
+            background: var(--pastel-mint);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+        }
+        
+        /* Instructions */
+        .instructions {
+            background: var(--pastel-lavender);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+        
+        /* Floral Elements */
+        .floral {
+            text-align: center;
+            font-size: 2rem;
+            margin: 20px 0;
+            opacity: 0.7;
+        }
+        
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .info-card {
+            background: var(--pastel-peach);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        /* Map Section */
+        .map-placeholder {
+            background: var(--pastel-mint);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .countdown {
+                gap: 10px;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+                padding: 10px;
+            }
+            
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="floral">🌸</div>
+            <h1>Nicole's Baby Shower</h1>
+            <div class="subtitle">Baby in Bloom</div>
+            <p>Celebrating the upcoming arrival of our little one</p>
+            <div class="floral">🌷</div>
+            
+            <!-- Countdown Timer -->
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </header>
+        
+        <section class="section">
+            <h2>Welcome to Nicole's Baby Shower!</h2>
+            <p>We're so excited to celebrate this special time with you as we prepare for the arrival of Nicole's baby! This website is your portal to share all the beautiful moments from the baby shower.</p>
+            
+            <div class="upload-card">
+                <div class="upload-icon">📸</div>
+                <h3>Share Your Memories</h3>
+                <p>Upload your photos and videos from the event using our simple form. All uploads will be automatically saved to Nicole's Google Drive.</p>
+                
+                <!-- REPLACE THIS LINK WITH YOUR ACTUAL GOOGLE FORM LINK -->
+                <a href="https://forms.google.com/create?template=1FAIpQLSe..." class="upload-btn" target="_blank" id="uploadLink">
+                    📤 Upload Photos & Videos
+                </a>
+                
+                <p><small>Clicking this button will open the upload form in a new tab</small></p>
+            </div>
+            
+            <div class="instructions">
+                <h4>📋 How to Upload:</h4>
+                <ol>
+                    <li>Click the "Upload Photos & Videos" button above</li>
+                    <li>Fill in your name (email is optional)</li>
+                    <li>Select the photos/videos you want to upload</li>
+                    <li>Add a sweet message for Nicole if you'd like</li>
+                    <li>Click "Submit" - that's it! Your files will be automatically backed up</li>
+                </ol>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>📅 Event Details</h2>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>🕐 Date & Time</h3>
+                    <p><strong>Sunday, September 28th, 2025</strong></p>
+                    <p>3:00 PM - 7:00 PM</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>📍 Location</h3>
+                    <p><strong>Tania's Tea House</strong></p>
+                    <p>Dubai Hills</p>
+                    <p>Dubai, UAE</p>
+                </div>
+            </div>
+            
+            <div class="map-placeholder">
+                <h3>🗺️ Location Map</h3>
+                <p>Map of Tania's Tea House in Dubai Hills will be displayed here</p>
+                <p><small><em>You can add an embedded Google Map once you have the exact address</em></small></p>
+            </div>
+            
+            <div style="background: var(--pastel-mint); padding: 20px; border-radius: 10px; margin-top: 20px;">
+                <h3>🎯 RSVP Information</h3>
+                <p>Please RSVP by September 14th, 2025 to help us with planning.</p>
+                <p><strong>RSVP Link:</strong> <a href="https://nicoleshavingababy.rsvpify.com" target="_blank">nicoleshavingababy.rsvpify.com</a></p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>👶 Baby Information</h2>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📆 Due Date</h3>
+                    <p><strong>November 2025</strong></p>
+                    <p>We're eagerly awaiting the arrival of our little one!</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>🎨 Nursery Theme</h3>
+                    <p>"Baby in Bloom" with soft pastels and floral accents</p>
+                </div>
+            </div>
+            
+            <div style="background: var(--pastel-pink); padding: 20px; border-radius: 10px; margin-top: 20px;">
+                <h3>💝 Your Presence is Your Present</h3>
+                <p>We're so grateful you'll be joining us to celebrate this special time. Your love and support are the greatest gifts we could ask for as we prepare to welcome our baby.</p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>📸 Memory Gallery</h2>
+            <p>Photos and videos will appear here once they're uploaded by our guests after the event.</p>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <div style="text-align: center; padding: 20px;">
+                        <div style="font-size: 2rem;">📷</div>
+                        <p>Your photos will appear here</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem;">🎥</div>
+                        <p>Videos will show here</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem;">💖</div>
+                        <p>Special moments</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem;">👶</div>
+                        <p>Baby memories</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <p><em>Check back after September 28th to see all the wonderful memories from Nicole's baby shower!</em></p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>💌 Contact Information</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>👰 Hosted By</h3>
+                    <p>Sarah Johnson & Emily Martinez</p>
+                    <p>Email: nicolesbabyshower@gmail.com</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>🚗 Venue Information</h3>
+                    <p>Tania's Tea House is located in the beautiful Dubai Hills community</p>
+                    <p>Ample parking available on-site</p>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="floral">💐</div>
+            <p>Made with 💖 for Nicole's Baby Shower</p>
+            <p>For any questions, please contact Sarah or Emily</p>
+            <p>September 28th, 2025 • Tania's Tea House, Dubai Hills</p>
+        </footer>
+    </div>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const eventDate = new Date('September 28, 2025 15:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+            
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.querySelector('.countdown').innerHTML = "<h3>The baby shower has happened! Check out the memories in the gallery.</h3>";
+            }
+        }
+        
+        const countdownTimer = setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Simple function to show a confirmation when people leave the site to upload
+        document.querySelector('.upload-btn').addEventListener('click', function(e) {
+            if(!confirm('You\'re about to open the photo upload form. Continue?')) {
+                e.preventDefault();
+            }
+        });
+        
+        // Add a little animation to the upload card
+        const uploadCard = document.querySelector('.upload-card');
+        setInterval(() => {
+            uploadCard.style.transform = 'translateY(-3px)';
+            setTimeout(() => {
+                uploadCard.style.transform = 'translateY(0)';
+            }, 300);
+        }, 5000);
+    </script>
+</body>
+</html>
